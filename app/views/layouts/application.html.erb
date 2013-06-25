@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+  		<title>ProjThree</title>
+  		<%= stylesheet_link_tag    "application", :media => "all" %>
+  		<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  		<%= stylesheet_link_tag    "bootstrap.min", :media => "all" %>
+  		<%= stylesheet_link_tag    "bootstrap-responsive", :media => "all" %>
+  		<%= stylesheet_link_tag    "bootstrap-responsive.min", :media => "all" %>
+  		<%= stylesheet_link_tag    "jquery-ui", :media => "all" %>
+  		<%= javascript_include_tag "application" %>
+  		<%= javascript_include_tag "bootstrap" %>
+  		<%= javascript_include_tag "bootstrap.min" %>
+  		<%= javascript_include_tag "bootstrap" %>
+  		<%= javascript_include_tag "jquery.min" %>
+  		<%= javascript_include_tag "jquery-1.9.1" %>
+  		<%= javascript_include_tag "jquery-ui" %>
+  		<%= javascript_include_tag "jquery-ujs" %>
+  		<%= javascript_include_tag "prototype" %>
+  		<%= javascript_include_tag "scriptaculous" %>
+  		<%= javascript_include_tag "simple-slide-show" %>
+  		<%= javascript_include_tag "effects" %>
+  		<%= csrf_meta_tags %>
+	</head>
+
+	<body onload="displayTimestamp()">	
+
+		<div id="page">
+
+		<div id="wrapper">
+
+			<div id="header" class="header">
+
+				<p class="text-center headerText ">News Dash Board</p>
+
+				<span id="time_stamp" class="timeStamp">
+
+					<p id="time_text" class="text-center"></p>
+
+				</span>
+
+			</div>
+	
+			<div id="content_menu" class="contentMenu">
+			
+				<script>	
+					
+					$(function() {
+						$( "#business_news" ).draggable({ containment: "parent" });
+						$( "#sports_news" ).draggable({ containment: "parent" });
+						$( "#latest_news" ).draggable({ containment: "parent" });
+						$( "#popular_news" ).draggable({ containment: "parent" });
+						$( "#view_feedback_page" ).draggable({ containment: "parent" });
+						$( "#view_feedbacks" ).draggable({ containment: "parent" });
+						$( "#tab_settings" ).draggable({ containment: "parent" });
+						$( "#moderate_users" ).draggable({ containment: "parent" });	
+					});
+
+				</script>
+			
+				
+				<% if @preferences.business_news_preference == 1 %>
+									
+					<div id="business_news" class="businessNews navbar-inner">
+						<span id="business_news_text" class="newsText h5">
+							<%= link_to "Business", "/business_news/show_business_news", :remote => true, :id => "busi" %>
+						</span>
+					</div>
+						
+				<% end %>
+
+			
+				<% if @preferences.sports_news_preference == 1 %>
+			
+					<div id="sports_news" class="sportsNews navbar-inner">
+						<span id="sports_news_text" class="newsText h5">
+							<%= link_to "Sports", "/sports_news/show_sports_news", :remote => true, :id => "spor" %>
+						</span>
+					</div>	
+					
+				<% end %>
+		
+				
+				<% if @preferences.latest_news_preference == 1 %>
+			
+					<div id="latest_news" class="latestNews navbar-inner">
+						<span id="latest_news_text" class="newsText h5">
+							<%= link_to "Latest", "/latest_news/show_latest_news", :remote => true, :id => "late" %>
+						</span>					
+					</div>
+		
+				<% end %>			
+		
+				
+			
+				<% if @preferences.popular_news_preference == 1 %>
+			
+					<div id="popular_news" class="popularNews navbar-inner">
+						<span id="popular_news_text" class="newsText h5">
+							<%= link_to "Popular", "/popular_news/show_popular_news", :remote => true, :id => "popu" %>
+						</span>
+					</div>
+						
+				<% end %>
+
+							
+				<% if @preferences.give_feedback_preference == 1 %>
+			
+					<div id="view_feedback_page" class="submitFeedback navbar-inner">
+						<span id="view_feedbackpage_text" class="newsText h5">
+							<%= link_to "Give Feedback", "#giveFeedback", :role => "button", :data => {:toggle => "modal"}  %>
+						</span>
+					</div>	
+				
+				<% end %>
+
+
+				<% if @preferences.view_feedbacks_preference == 1 %>
+			
+					<div id="view_feedbacks" class="viewFeedback navbar-inner">
+						<span id="view_feedbacks_text" class="newsText h5">
+							<%= link_to "View Feedbacks", "/feedback/view_feedbacks", :remote => true, :id => "vife" %>
+						</span>
+					</div>
+				
+				<% end %>
+
+				<div id="tab_settings" class="tabSettings navbar-inner">
+					<span id="settings_tab_text" class="newsText h5">
+						<%= link_to "Settings", "#myModal", :data => {:toggle => "modal"}, :role => "button", :onclick => "settingsPopup()"  %>
+					</span>
+				</div>
+
+			</div>
+			
+					
+
+			<div id="image_job" class="imageJob">
+
+
+				<div id="image_slider" class="imageSlider">
+			
+					<ul id="slide-images">
+	
+						<li><%= image_tag "one.jpeg", :alt => "One", :title => "One" %></li>
+						<li><%= image_tag "two.jpeg", :alt => "Two", :title => "Two" %></li>
+						<li><%= image_tag "three.jpeg", :alt => "Three", :title => "Three" %></li>
+						<li><%= image_tag "four.jpeg", :alt => "Four", :title => "Four" %></li>
+						<li><%= image_tag "five.jpeg", :alt => "Four", :title => "Four" %></li>
+						<li><%= image_tag "six.jpeg", :alt => "Six", :title => "Six" %></li>
+						<li><%= image_tag "seven.jpeg", :alt => "Seven", :title => "Seven" %></li>
+						<li><%= image_tag "eight.jpeg", :alt => "Eight", :title => "Eight" %></li>
+						<li><%= image_tag "nine.jpeg", :alt => "Nine", :title => "Nine" %></li>
+						<li><%= image_tag "ten.jpeg", :alt => "Ten", :title => "Ten" %></li>
+	
+					</ul>
+
+				</div>		
+
+				<div id="job_add" class="jobAdd">
+			
+					<h4>Looking for a bright career in media?</h4>
+
+					<br>
+
+					<h5>We are awaiting to see you.</h5>	
+
+					<br>
+
+					<h5>Drop your CV to us.</h5>
+
+					<br>
+
+					<h5>Mail us at newsdashboard@newsdashboard.com</h5>
+
+				</div>		
+
+			</div>
+
+			<div id="content_layout" class="contentLayout">
+			
+				<%= yield %>
+			
+			</div>
+
+			<div id="hit_counter" class="hitCounter">
+
+				<!-- hitwebcounter Code START -->
+				
+				<span id="hit_number" class="hitNumber">
+
+					<p>Number of visits: <%=h @signin_count %></p>
+
+					<div align='center'><a href='http://www.hit-counts.com'><img src='http://www.hit-counts.com/counter.php?t=MTI1MjgwMA==' border='0' alt='Web Counter'></a><BR><a href='http://www.hit-counts.com'>Web Counter</a></div>
+
+				</span>
+
+
+				
+  				
+			</div>
+
+			<br><br><br><br><br><br><br><br><br><br>
+
+			<div id="disqus_thread"></div>
+    			<script type="text/javascript">
+        			
+    	    		var disqus_shortname = 'newsdashboard'; 
+        	       	
+            	   	(function() {
+	            		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	            		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    	        		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        			})();
+    			</script>
+    			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    	
+    		</div>
+
+    		<script type="text/javascript">
+    
+    			var disqus_shortname = 'newsdashboard'; // required: replace example with your forum shortname
+    			(function () {
+        			var s = document.createElement('script'); s.async = true;
+        			s.type = 'text/javascript';
+        			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    			}());
+    	
+    		</script>
+
+    	</div>
+
+    </div>
+
+	</body>
+	
+</html>
+
+
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Settings</h3>
+  	</div>
+  
+	<div class="modal-body">
+    	
+		<%= form_for :settings, :url => { :controller => 'settings', :action => 'set_settings', :class => 'settings' } do |f| %>
+	
+		
+			<div id="business_news_check" class="settingCheck">
+				<%= check_box_tag(:business_news) %>
+				<%= label_tag(:business_news, "Business News", :class => "checkbox inline") %>
+			</div>
+		
+			<br>
+		
+			<div id="sports_news_check" class="settingCheck">
+				<%= check_box_tag(:sports_news) %>
+				<%= label_tag(:sports_news, "Sports News", :class => "checkbox inline") %>
+			</div>
+		
+			<br>
+		
+			<div id="latest_news_check" class="settingCheck">
+				<%= check_box_tag(:latest_news) %>
+				<%= label_tag(:latest_news, "Latest News", :class => "checkbox inline") %>
+			</div>
+		
+			<br>
+		
+			<div id="popular_news_check" class="settingCheck">
+				<%= check_box_tag(:popular_news) %>
+				<%= label_tag(:popular_news, "Popular News", :class => "checkbox inline") %>
+			</div>
+		
+			<br>
+
+			<div id="give_feedback_check" class="settingCheck">
+				<%= check_box_tag(:give_feedback) %>
+				<%= label_tag(:give_feedback, "Give Feedback", :class => "checkbox inline") %>
+			</div>
+
+			<br>
+			
+			<div id="view_feedbacks_check" class="settingCheck">
+				<%= check_box_tag(:view_feedbacks) %>
+				<%= label_tag(:view_feedbacks, "View Feedbacks", :class => "checkbox inline") %>
+			</div>
+		
+			<br>
+
+	</div>
+  
+  	<div class="modal-footer">
+	  		<%= submit_tag "Save Settings" %>
+			
+		<% end %> 
+
+  	</div>
+
+</div>
+
+
+
+<div id="giveFeedback" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Feedback</h3>
+  	</div>
+  
+	<div class="modal-body">
+    	
+		<%= form_for :feedback, :html => { :onsubmit => 'return validateFeedback();' }, :url => { :controller => 'feedback', :action => 'submit_feedback', :method => 'post' } do |f| %>
+	
+			<%= f.label :name %>
+			<%= f.text_field :name, :id => 'name', :size => 20, :class => 'textarea' %><br />
+			<%= f.label :email %>
+			<%= f.text_field :email, :id => 'email', :type => 'email', :size => 25, :class => 'textarea' %><br />
+			<%= f.label :feedback %>
+			<%= f.text_area :feedback, :id => 'feedback', :rows => 5, :cols => 5, :class => 'textarea' %><br />
+		
+	</div>
+  
+  	<div class="modal-footer">
+	
+			<%= submit_tag "Submit Feedback ", :class => 'button' %>
+
+		<% end %>
+
+  	</div>
+
+</div>
+
+<!--  Start of Code for jquery ajax effects before send -->
+
+<script>
+
+	
+	jQuery(document).bind("ajax:beforeSend", function() {
+		jQuery('#wrapper').fadeTo('slow',0.4);
+		jQuery('#spinner_page').show();
+	
+	});
+
+</script>
+
+
+
+<!--  End of Code for jquery ajax effects before send -->
+
+<div id="spinner_page" style="display:none;margin-left:365px;margin-top:-248px;position:absolute;">
+    <%=image_tag "ajax-loader.gif" %>
+</div>

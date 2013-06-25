@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  business_news_preference: 1
+  sports_news_preference: 1
+  latest_news_preference: 1
+  popular_news_preference: 1
+  view_feedbacks_preference: 1
+
+two:
+  business_news_preference: 1
+  sports_news_preference: 1
+  latest_news_preference: 1
+  popular_news_preference: 1
+  view_feedbacks_preference: 1

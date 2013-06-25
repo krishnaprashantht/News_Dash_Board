@@ -1,0 +1,18 @@
+<div id="feedback" class="feedback">
+		
+	<h3 class="text-center">Feedback</h3>
+
+	<br>
+	
+	<%= form_for :feedback, :url => { :controller => 'feedback', :action => 'submit_feedback', :method => 'post' } do |f| %>
+	
+		<%= f.label :name %>
+		<%= f.text_field :name, :size => 20, :class => 'textarea' %><br />
+		<%= f.label :email %>
+		<%= f.text_field :email, :type => 'email', :size => 25, :class => 'textarea' %><br />
+		<%= f.label :feedback %>
+		<%= f.text_area :feedback, :rows => 5, :cols => 5, :class => 'textarea' %><br />
+		<%= submit_tag "Submit Feedback ", :class => 'button' %>
+
+	<% end %>
+</div>

@@ -1,0 +1,2 @@
+module PopularNewsHelper
+end

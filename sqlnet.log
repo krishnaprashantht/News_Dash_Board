@@ -1,0 +1,38 @@
+
+
+***********************************************************************
+Fatal NI connect error 12537, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=8080))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)(CID=(PROGRAM=C:\Softwares\Ruby193\bin\ruby.exe)(HOST=FIR000075714006)(USER=Bala?Galla))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 10.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 10.2.0.1.0 - Production
+  Time: 29-APR-2013 19:02:09
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12537
+    TNS-12537: TNS:connection closed
+    ns secondary err code: 12560
+    nt main err code: 507
+    TNS-00507: Connection closed
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12541, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)(CID=(PROGRAM=C:\Softwares\Ruby193\bin\ruby.exe)(HOST=FIR000075714006)(USER=Bala?Galla))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 10.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 10.2.0.1.0 - Production
+  Time: 22-MAY-2013 17:29:16
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12541
+    TNS-12541: TNS:no listener
+    ns secondary err code: 12560
+    nt main err code: 511
+    TNS-00511: No listener
+    nt secondary err code: 61
+    nt OS err code: 0
